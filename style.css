@@ -133,6 +133,7 @@ For Chat page
 
 .message.by-user {
   background: #F0F0FF;
+  text-align: right;
 }
 
 .chat-form {
