@@ -14,9 +14,23 @@ function redirect(path){
      return false;
 }
 
+function loginWithGoogle() {
+     var provider = new firebase.auth.GoogleAuthProvider();
+
+     firebase.auth().signInWithPopup(provider).then(function(result) {
+       // The signed-in user info.
+       var user = result.user;
+       // ...
+       console.log(user);
+
+     }).catch(function(error) {
+       console.log(error.message);
+     });
+}
+
 function logInUser(){
      //log in with Google
      //using Firebase
-
-     redirect("chat.html");
+     loginWithGoogle();
+     //redirect("chat.html");
 }

@@ -4,6 +4,11 @@ click("signin-button", logInUser);
 var database = firebase.database();
 var userRef = database.ref("users");
 
+
+
+
+
+/*
 userRef.on('value',function(snapshot){
      console.log(snapshot.val());
 });
@@ -16,7 +21,6 @@ userRef.child("1234").set({
 });
 
 
-/*
 //object in js
 var user1 = {
      id: 1,
