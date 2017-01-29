@@ -83,3 +83,22 @@ function updateUserData(){
      var usernameElement = getElement("username");
      usernameElement.textContent = window.currentUser.name;
 }
+
+function loadUsers(fn){
+     var database = firebase.database();
+     var usersRef = database.ref("users");
+
+     usersRef.on('value',function(snapshot){
+          var users = snapshot.val();
+
+          fn(users);
+     });
+}
+
+function renderUser(user){
+     var uid = user.id;
+     var name = user.name;
+     var html = '<div id="'+uid+'"class="member">'+name+'</div>';
+
+     return html;
+}
