@@ -1,8 +1,5 @@
 click("signin-button", logInUser);
 
-// Get a reference to the database service
-var database = firebase.database();
-var userRef = database.ref("users");
 
 
 
