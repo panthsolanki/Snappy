@@ -1,4 +1,22 @@
 click("signin-button", logInUser);
+
+// Get a reference to the database service
+var database = firebase.database();
+var userRef = database.ref("users");
+
+userRef.on('value',function(snapshot){
+     console.log(snapshot.val());
+});
+//console.log(databaseRef.name);
+
+//to add database create ref
+
+userRef.child("1234").set({
+     email: "panth@gmail.com"
+});
+
+
+/*
 //object in js
 var user1 = {
      id: 1,
@@ -36,3 +54,4 @@ for(var i=0; i<users.length; i++){
 var message = new Object();
 message.text="Hello";
 console.log(message.text);
+*/
