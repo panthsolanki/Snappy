@@ -12,7 +12,10 @@ ifUserIsLoggedIn(function(){
 
           for(var uid in users){
                var user = users[uid];
-               usersList += renderUser(user);
+               //to remove signined user
+               if(window.currentUser.id != uid){
+                    usersList += renderUser(user);
+               }
           }
 
           getElement("members").innerHTML = usersList;
