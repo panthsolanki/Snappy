@@ -2,9 +2,6 @@ click("signin-button", logInUser);
 
 
 
-
-
-
 /*
 userRef.on('value',function(snapshot){
      console.log(snapshot.val());

@@ -55,3 +55,31 @@ function createUser(uid, uname, uemail){
           redirect("chat.html");
      });
 }
+
+function ifUserIsLoggedIn(fn){
+     firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+               // User is signed in.
+               //console.log(user.displayName);
+               window.currentUser = {
+                    id: user.uid,
+                    name: user.displayName,
+                    email: user.email
+               };
+
+               fn();
+          } else {
+          // No user is signed in.
+
+          }
+     });
+}
+
+function getElement(id){
+     return document.getElementById(id);
+}
+
+function updateUserData(){
+     var usernameElement = getElement("username");
+     usernameElement.textContent = window.currentUser.name;
+}
