@@ -97,8 +97,47 @@ function loadUsers(fn){
 
 function renderUser(user){
      var uid = user.id;
+     var chat_id = getChatId(window.currentUser.id, uid);
      var name = user.name;
-     var html = '<div id="'+uid+'"class="member">'+name+'</div>';
+     var html = '<div id="'+chat_id+'"class="member">'+name+'</div>';
 
+     return html;
+}
+
+function getChatId(id1, id2) {
+     if(id1 > id2){
+          return id1+""+id2;
+     }
+     return id2+""+id1;
+}
+
+function onClickMultiple(className, func) {
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains(className)) {
+            func(event.target);
+        }
+    });
+}
+
+function loadMessages(chat_id, fn) {
+     var database = firebase.database();
+     var chatRef = database.ref("chats");
+
+     chatRef.child(chat_id).on('value',function(snapshot){
+          var messages = snapshot.val();
+
+          fn(messages);
+     });
+}
+
+function renderMessage(message) {
+     var text = message.text;
+     var msgClass = "message";
+
+     if(message.sender_id == window.currentUser.id){
+          msgClass = "message by-user";
+     }
+
+     var html = '<div class="'+ msgClass +'">'+text+'</div>';
      return html;
 }
