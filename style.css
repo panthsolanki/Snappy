@@ -87,6 +87,7 @@ For Chat page
   padding: 10px;
   font-size: 16px;
   border-bottom: solid 1px navy;
+  border-right: solid 1px navy;
 }
 
 .logout {
@@ -112,9 +113,11 @@ For Chat page
 }
 
 .chat-info {
-  background-color: white;
+  background: white;
+  color: navy;
   padding: 10px;
-  color: #0F0F0F;
+  font-size: 16px;
+  border-bottom: solid 1px navy;
 }
 
 .messages {

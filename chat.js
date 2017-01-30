@@ -24,6 +24,10 @@ ifUserIsLoggedIn(function(){
      onClickMultiple("member",function(element) {
           var chat_id = element.id;
 
+          activeMember(chat_id);
+
+          //loading messages
+
           loadMessages(chat_id, function(messages) {
                var messagesList="";
 

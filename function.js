@@ -156,3 +156,36 @@ function sendMessage(chat_id, text) {
      chat.child(newMessageId).set(message);
 
 }
+
+function activeMember(chat_id){
+     activeMemberSidebar(chat_id);
+
+     var selected_id = removeChat(chat_id);
+     var selected_member ='';
+     var database = firebase.database();
+     var usersRef = database.ref('/users/');
+
+     usersRef.on("value", function(snapshot) {
+         snapshot.forEach(function(childSnapshot) {
+             var childData = childSnapshot.val();
+             if(selected_id == childData.id){
+                  selected_member = childData.name;
+             }
+         });
+     });
+
+     var chat_title = getElement("selected-member");
+     chat_title.textContent = selected_member;
+     //console.log(selected_member);
+}
+
+function removeChat(chat_id){
+     var host = window.currentUser.id;
+     var replace = '';
+     var clicked_member = chat_id.replace(host,replace);
+     return clicked_member;
+}
+
+function activeMemberSidebar(chat_id) {
+     document.getElementById(chat_id).className = "member active";
+}
