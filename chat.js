@@ -40,6 +40,7 @@ ifUserIsLoggedIn(function(){
           });
 
           getElement("chat-id").value = chat_id;
+          //getElement("prev-chat-id").value = chat_id;
      });
 
      click("send-button", function() {

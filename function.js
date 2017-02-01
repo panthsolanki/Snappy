@@ -1,4 +1,4 @@
-
+window.prevActiveChat = "abc";
 function click(elementId, fn){
      var element = document.getElementById(elementId);
      if(element){
@@ -27,7 +27,7 @@ function loginWithGoogle() {
 
        //Create User
        createUser(user.uid, user.displayName, user.email);
-
+       console.log(user.profilepic);
      }).catch(function(error) {
        console.log(error.message);
      });
@@ -187,5 +187,5 @@ function removeChat(chat_id){
 }
 
 function activeMemberSidebar(chat_id) {
-     document.getElementById(chat_id).className = "member active";
+     //document.getElementById(chat_id).className = "member active";
 }

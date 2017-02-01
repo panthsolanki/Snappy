@@ -99,17 +99,20 @@ For Chat page
   padding: 10px;
   border-bottom: solid 1px white;
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .member:hover {
-  background: white;
-  color: blue;
+  font-weight: bold;
+  background-color: azure;
+  color: navy;
+  text-transform: capitalize;
 }
 
 .member.active {
   font-weight: bold;
-  background-color: azure;
-  color: navy;
+  background: white;
+  color: blue;
 }
 
 .chat-info {
@@ -118,6 +121,7 @@ For Chat page
   padding: 10px;
   font-size: 16px;
   border-bottom: solid 1px navy;
+  text-transform: capitalize;
 }
 
 .messages {
